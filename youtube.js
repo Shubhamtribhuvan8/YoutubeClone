@@ -13,7 +13,7 @@
     }
   
     let GetData = async (query) => {
-      let data = await fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=60&q=${query}&key=AIzaSyD6Wh8Wr57AMlPWxW_DoeWVocPEVReYl2Y`)
+      let data = await fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=60&q=${query}&key=AIzaSyBimND75_08CcrbzR2SMkLcgdpoK9tNwh0`)
       let jsondata = await data.json();
       return jsondata;
     }
@@ -50,7 +50,7 @@
       console.log(data1);
     }
     async function Searchcall(query) {
-      let data = await fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=60&q=${query}&key=AIzaSyD6Wh8Wr57AMlPWxW_DoeWVocPEVReYl2Y`)
+      let data = await fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=60&q=${query}&key=AIzaSyBimND75_08CcrbzR2SMkLcgdpoK9tNwh0`)
       let jsondata = await data.json();
       appendcall(jsondata);
     }
@@ -2133,7 +2133,7 @@
     //   });
     // }
     // appenddatacenter();
-    const API_KEY = 'AIzaSyD6Wh8Wr57AMlPWxW_DoeWVocPEVReYl2Y';
+    const API_KEY = 'AIzaSyBimND75_08CcrbzR2SMkLcgdpoK9tNwh0';
     const countryCode = 'IN';
 
     async function getPopularVideos() {
