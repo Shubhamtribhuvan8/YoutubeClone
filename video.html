@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube</title>
+    <link rel="icon" type="image/x-icon" href="https://cdn.pixabay.com/photo/2016/07/03/18/36/youtube-1495277_960_720.png">
+    <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <style>
+         @media only screen and (max-width: 600px) {
+            body {
+                background-color: lightblue;
+            }
+        }
+
+        body {
+            background-color:white;
+        }
+img {
+            width: 100%;
+            height: auto !important;
+        }
+
+        .transaction_parent {
+            display: flex;
+            background-color: white;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 10px;
+        }
+
+        .topnav {
+            overflow: hidden;
+            background-color: white;
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            width: 13%;
+            align-items: center;
+
+        }
+
+        .topnav #myLinks {
+            display: none;
+        }
+
+        .topnav a {
+            color: #221f1f;
+            /* padding: 14px 16px; */
+            text-decoration: none;
+            font-size: 20px;
+            display: block;
+        }
+
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .active {
+            background-color: #04AA6D;
+            color: white;
+        }
+
+        input {
+            width: 622px;
+            border-radius: 28px;
+            border: none;
+            padding: 10px 17px;
+            outline: none;
+        }
+
+        button {
+            border: none;
+            border-radius: 28px;
+            padding: 10px 0px;
+            border-top-left-radius: 0 !important;
+            border-bottom-left-radius: 0 !important;
+        }
+
+        .postion1 {
+            position: relative;
+        }
+
+        .middle {
+            border-radius: 28px;
+            border: 1px solid black;
+            /* border-radius: 18px; */
+            position: relative;
+        }
+
+        .margin1 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h4 {
+            margin: 0%;
+        }
+
+        .last {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 29px;
+        }
+
+        .suggestionlist {
+            position: absolute;
+            width: 100%;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            border-radius: 20px;
+            padding: 20px;
+             display: none; 
+            overflow-y: scroll;
+            height: 70vh;
+            box-shadow: 0px 0px 20px gray;
+        }
+
+        .videowidth {
+            /* width: 30%; */
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+
+        }
+
+        .videowidth div {
+            width: 23%;
+            height: 257px;
+        }
+
+        .videowidth img {
+            border-radius: 12px;
+
+        }
+
+        sup {
+            font-size: 15px;
+        }
+
+        .oneimg {
+            border-radius: 50%;
+            width: 31px;
+        }
+        .iframe1{
+            text-align: center;
+            margin-top: 1%;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+
+<body onload="video()">
+    <!-- <h1>Video</h1> -->
+    
+<div class="transaction_parent">
+    <div class="topnav">
+        <div class="postion1">
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+            <div id="myLinks">
+                <a href="#Home">Home</a>
+                <a href="#Shorts">Shorts</a>
+                <a href="#Subscription">Subscription</a>
+                <a href="#Library">Library</a>
+            </div>
+        </div>
+        <div>
+           <a href="index.html"><h4><i class="fa-brands fa-youtube" style="color: red;"></i>YouTube<sup>IN</sup></h4></a> 
+        </div>
+    </div>
+
+    <div class="margin1">
+        <div class="middle">
+            <input type="text" name=" Search" placeholder=" Search" id="search-query" onkeyup="getdata1()">
+            <button onclick="main()"><i class="fa-solid fa-magnifying-glass"
+                    style="width: 60px; height: 21px;"></i></button>
+            <div class="suggestionlist" id="suggestionlist"></div>
+        </div>
+
+        <span><i class="fa-solid fa-microphone" style="font-size: 20px;"></i></span>
+
+    </div>
+    <div class="last">
+        <span class="material-symbols-outlined" style="font-size: 34px;">video_call</span>
+        <h4><span class="material-symbols-outlined" style="font-size: 34px;"> notifications</span></h4>
+        <span><img class="oneimg"
+                src="https://yt3.ggpht.com/yti/AJo0G0nzpyfjQBZYnkzjz-j0qrpLukWRCFr92zQFrTmaGqs=s88-c-k-c0x00ffffff-no-rj-mo"
+                alt="Avatar"></span>
+        <!-- <span class="material-symbols-outlined" style="font-size: 34px;"> radio_button_unchecked</span> -->
+    </div>
+
+</div>
+<div class="iframe1">
+    <iframe width="560"
+    id="youtube-iframe" 
+    height="315"
+     title="YouTube video player" 
+     frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen></iframe> 
+      <div id="aaa"></div>
+      <div id="aa"></div>
+    </div>
+</body>
+</html>
+<script>
+    let video=()=>{
+        let data=JSON.parse(localStorage.getItem("video"));
+        let iframe=document.getElementById("youtube-iframe");
+        iframe.src=`https://www.youtube.com/embed/${data.id.videoId}`;
+        // console.log(JSON.parse(data));
+        console.log(data);
+      document.getElementById("aaa").textContent = data.snippet.title;
+    //   document.getElementById("aa").textContent = data.snippet.description;
+     document.getElementById("aa").textContent = data.snippet.channelTitle;
+    //   document.getElementById("aa").textContent = data.snippet.description;
+    }
+    // var data = JSON.parse(localStorage.getItem("details"));
+
+//Personal details
+
+
+
+
+
+</script>
